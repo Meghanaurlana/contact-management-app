@@ -26,7 +26,6 @@ const NewContactScreen: FC<newContactProps> = (props): JSX.Element => {
       number,
       status,
     };
-    console.log("ini methd");
 
     props.closeModal(props.showModal);
     props.actions.addContact(payload);
@@ -34,7 +33,7 @@ const NewContactScreen: FC<newContactProps> = (props): JSX.Element => {
     setNumber("");
   };
   return (
-    <div>
+    <div className="w-1/2 mx-auto my-4 pt-20">
       <Dialog open={props.showModal}>
         <DialogTitle>Add New Contact</DialogTitle>
         <DialogContent>

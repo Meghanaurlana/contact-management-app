@@ -7,8 +7,6 @@ const initialState = {
 export default function (state = initialState, action: any) {
   switch (action.type) {
     case CONTACT_ADDED: {
-      console.log("action", action);
-
       return {
         ...state,
         contacts: [

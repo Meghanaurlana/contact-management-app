@@ -19,14 +19,11 @@ const AllContactsScreen: FC<AllContactsProps> = (props) => {
     setShowModal(!prev);
   };
   const closeEditModalHandler = (prev: boolean) => {
-    console.log("close", prev);
-
     setEditModal(!prev);
     setEditName("");
     setEditNumber("");
   };
 
-  console.log("contacts", props.contacts);
   const editContact = (id: any, name: any, number: any, status: any) => {
     setEditName(name);
     setEditNumber(number);
@@ -45,23 +42,45 @@ const AllContactsScreen: FC<AllContactsProps> = (props) => {
     setEditNumber("");
   };
   return (
-    <div>
-      <Button onClick={() => setShowModal(true)}> Add New Contact </Button>
-      <NewContactScreen showModal={showModal} closeModal={closeModalHandler} />
-      <div>
+    <div className="w-full">
+      <div className="grid justify-items-center m-3">
+        <button
+          className="rounded-full p-2 text-2xl bg-green-200"
+          onClick={() => setShowModal(true)}
+        >
+          {" "}
+          Add New Contact{" "}
+        </button>
+
+        <NewContactScreen
+          showModal={showModal}
+          closeModal={closeModalHandler}
+        />
+      </div>
+      <div className=" w-3/4 m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
         {props.contacts.map((item: any) => (
-          <div key={item.id}>
-            <div>Name: {item.name}</div>
-            <div>Number: {item.number}</div>
-            <div>Status: {item.status}</div>
-            <Button
-              onClick={() =>
-                editContact(item.id, item.name, item.number, item.status)
-              }
-            >
-              Edit
-            </Button>
-            <Button>Delete</Button>
+          <div
+            className="rounded p-4 bg-blue-200 grid justify-items-center"
+            key={item.id}
+          >
+            <div>
+              <div>Name: {item.name}</div>
+              <div>Number: {item.number}</div>
+              <div>Status: {item.status}</div>
+            </div>
+            <div className="justify-self-auto ">
+              <button
+                className="rounded p-2 bg-violet-500 text-black"
+                onClick={() =>
+                  editContact(item.id, item.name, item.number, item.status)
+                }
+              >
+                Edit
+              </button>
+              <button className="rounded p-2 bg-red-500 text-white ms-5">
+                Delete
+              </button>
+            </div>
             <EditContactScreen
               updateContact={updateContactHandler}
               showModal={editModal}

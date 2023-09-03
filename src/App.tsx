@@ -8,16 +8,16 @@ import NavBar from "./components/Navbar/Navbar";
 import MapsAndGraphsScreen from "./Screens/MapAndGraphsScreen";
 
 function App() {
-  console.log("hiii");
-
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" Component={AllContactsScreen} />
-        <Route path="/mapsAndGraphs" Component={MapsAndGraphsScreen} />
-      </Routes>
-    </Router>
+    <div className="flex">
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" Component={AllContactsScreen} />
+          <Route path="/mapsAndGraphs" Component={MapsAndGraphsScreen} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
