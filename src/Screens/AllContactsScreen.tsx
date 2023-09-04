@@ -43,7 +43,7 @@ const AllContactsScreen: FC<AllContactsProps> = (props) => {
   };
   return (
     <div className="w-full">
-      <div className="grid justify-items-center m-3">
+      <div className="grid justify-items-center m-10">
         <button
           className="rounded-full p-2 text-2xl bg-green-200"
           onClick={() => setShowModal(true)}
